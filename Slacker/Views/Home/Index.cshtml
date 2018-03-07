@@ -1,31 +1,23 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+@Html.Partial("_Index")
+<script src="~/Scripts/jquery.js" type="text/javascript"></script>
+<script src="~/Scripts/index.js" type="text/javascript"></script>
+<div class="row div-equality">
+    <div class="col-md-4 js-anim1 hidden-block div-click-parent">
+        <h2>Financial Tracker</h2>
+        <p>This tool has the role of managing your finances and giving you an excelent overview for the past gains and expenses. All the sums can be converted, live, in any currency you would prefer. A vault system is also available and it acts as a barrier between expandable capital and savings.</p>
+        <p><a href='@Url.Action("FinancialTracker")'><span class="div-click-child"></span></a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-4 js-anim2 hidden-block">
+        <h2>Dietary Tracker</h2>
+        <p>This awsome tracker will put an end to the difficult calculus and endless searches you have to perform when you decide to start following a diet. You will be able to easily find out how many calories your favourite food has and you can customize by adding complex recipes to your personal cookbook.</p>
+        <p><a href="https://go.microsoft.com/fwlink/?LinkId=301866"><span class="div-click-child"></span></a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-4 js-anim3 hidden-block">
+        <h2>Fitness Tracker</h2>
+        <p>Don't know how much you have to exercise in order to burn the excess energy? This tracker will help you have a balanced exercise program in respect to the intake energy.</p>
+        <p><a href="https://go.microsoft.com/fwlink/?LinkId=301867"><span class="div-click-child"></span></a></p>
     </div>
 </div>

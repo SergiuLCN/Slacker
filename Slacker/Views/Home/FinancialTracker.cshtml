@@ -1,0 +1,80 @@
+﻿@model Slacker.Models.DataModel.FinancialTracker
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Partial("_Index")
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <link href="~/Content/jquerry-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/fintrack.js"></script>
+    <div class="form-horizontal">
+        <h4>Financial Tracker</h4>
+        <hr />
+        <table>
+            <tr>
+                <td width="50%" valign="top" align="left">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group test-js">
+                        @Html.LabelFor(model => model.InputValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.InputValue, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(model => model.InputValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpentGainedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.DropDownListFor(m => m.SpentGainedStatus, new SelectList(
+new[]
+{
+                            new { Value = "spent", Text = "Spent" },
+                            new { Value = "gained", Text = "Gained" },
+},
+"Value",
+"Text",
+Model
+))
+
+
+                                @Html.ValidationMessageFor(model => model.SpentGainedStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpentGainedSource, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SpentGainedSource, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(model => model.SpentGainedSource, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Add Record" class="btn btn-default" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+
+                    @Html.Partial("_FinancialTrackerList", Model.FinTrList)
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

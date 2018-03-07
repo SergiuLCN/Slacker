@@ -1,0 +1,25 @@
+﻿<script src="~/Scripts/jquery.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        var url = $(location).attr('href');
+        var urlx = "http://localhost:51626/";
+        if (url != urlx) {
+            $('#buttest').html('Back to Home &laquo;');
+            $('#buttest').click(function () {
+                window.location.href = urlx;
+                return false;
+            });
+            
+        }
+    });
+        </script>
+
+<div class="jumbotron">
+    <div class="cover">
+        <div class="cover-sub">
+    <h1>Slacker Tracker</h1>
+    <p class="lead">Don't worry about anything, anymore! Let us deal with the hard and time-consuming management of your daily routines, while you enjoy the important things in life.</p>
+    <p><a id="buttest" class="btn btn-primary btn-lg">Show more &raquo;</a></p>
+            </div>
+   </div> 
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Slacker.Models.DataModel.FinancialTrackerViewModel>
+<script>
+    $(document).ready(function () {
+        $("tr.js-list-tr:even").css("background-color", "floralwhite")
+        $("tr.js-list-tr:odd").css("background-color", "antiquewhite")
+    })
+</script>
+
+<table class="table">
+    <tr>
+        <th class="js-list-th">
+            @Html.DisplayNameFor(model => model.InputValue)
+        </th>
+        <th class="js-list-th">
+            @Html.DisplayNameFor(model => model.CurrentDate)
+        </th>
+        <th class="js-list-th">
+            @Html.DisplayNameFor(model => model.SpentGainedStatus)
+        </th>
+        <th class="js-list-th">
+            @Html.DisplayNameFor(model => model.SpentGainedSource)
+        </th>
+        <th class="js-list-th"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="js-list-tr">
+        <td>
+            @Html.DisplayFor(modelItem => item.InputValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpentGainedStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpentGainedSource)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "FinancialTrackerEdit", new { id=item.TransactionId }) |
+            @Html.ActionLink("Delete", "FinancialTrackerDelete", new { id=item.TransactionId })
+        </td>
+    </tr>
+}
+
+</table>

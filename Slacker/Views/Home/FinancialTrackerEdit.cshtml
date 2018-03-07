@@ -1,0 +1,211 @@
+﻿@*@model Slacker.Models.DataModel.FinancialTracker
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FinancialTrackerEdit</title>
+    <link href="~/Content/jquerry-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#SpentGainedSource").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Home/AutoComplete",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            console.log(data);
+                            response($.map(data, function (item) {
+                                return { label: item.SpentGainedSource, value: item.SpentGainedSource };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>FinancialTracker</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.TransactionId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InputValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.InputValue, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InputValue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SpentGainedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.DropDownListFor(m => m.SpentGainedStatus, new SelectList(
+                  new[]
+                  {
+                            new { Value = "true", Text = "Spent" },
+                            new { Value = "false", Text = "Gained" },
+                  },
+                  "Value",
+                  "Text",
+                  Model
+              ))
+
+
+                        @Html.ValidationMessageFor(model => model.SpentGainedStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.SpentGainedSource, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SpentGainedSource, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SpentGainedSource, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>*@
+
+
+@model Slacker.Models.DataModel.FinancialTracker
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@Html.Partial("_Index")
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <link href="~/Content/jquerry-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#SpentGainedSource").autocomplete({
+                source: function (request, response) {
+                    debugger;
+                    $.ajax({
+                        url: "/Home/AutoComplete",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            console.log(data);
+                            debugger;
+
+                            response($.map(data, function (item) {
+                                return { label: item.SpentGainedSource, value: item.SpentGainedSource };
+                            }))
+
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        });
+    </script>
+
+    <div class="form-horizontal">
+        <h4>Financial Tracker Edit</h4>
+        <a href="@Url.Action("Index")">&laquo;  Back</a>
+        <hr />
+        <table>
+            <tr>
+                <td width="50%">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.TransactionId)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.InputValue, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.InputValue, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.InputValue, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpentGainedStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.DropDownListFor(m => m.SpentGainedStatus, new SelectList(
+                             new[]
+                             {
+                                                new { Value = "spent", Text = "Spent" },
+                                                new { Value = "gained", Text = "Gained" },
+                             },
+                             "Value",
+                             "Text",
+                             Model
+                         ))
+
+
+                                @Html.ValidationMessageFor(model => model.SpentGainedStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SpentGainedSource, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SpentGainedSource, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SpentGainedSource, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+
+                    @Html.Partial("_FinancialTrackerList", Model.FinTrList)
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    
+}
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

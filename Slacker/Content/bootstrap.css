@@ -20,6 +20,84 @@
  */
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+.bg-color{
+    background-color:black;
+}
+
+
+.hidden-block {
+    display: none;
+}
+.js-anim1 {
+    color: darkmagenta;
+    background-color: azure;
+    border-radius: 10px;
+}
+.js-anim2 {
+    color: teal;
+    background-color: azure;
+    border-radius: 10px;
+}
+.js-anim3 {
+    color: green;
+    background-color: azure;
+    border-radius:10px;
+}
+.div-equality{
+    display: inline-flex;
+}
+.div-click-parent {
+    position: relative;
+}
+.div-click-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+.js-list-th {
+    background-color: burlywood;
+    color:brown;
+    text-align:center;
+}
+.js-list-tr {
+    text-align:center;
+
+}
+
+
+.cover {
+    background-color:rgba(0,0,0,0.7);
+    border-radius:10px;
+    color: crimson;
+    display: inline-block;
+    margin-right:200px;
+    border-style:solid;
+    border-width: 1px;
+    border-color:black;
+   
+}
+.cover-sub {
+    margin-top:15px;
+    margin-left:15px;
+    margin-bottom:15px;
+    margin-right:15px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 article,
 aside,
@@ -314,7 +392,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #333333;
+  color: darkred;
   background-color: #ffffff;
 }
 
@@ -761,6 +839,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  background-color: chocolate;
 }
 
 .container:before,
@@ -2091,8 +2170,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: darkred;
+  border-color: darkred;
 }
 
 .btn-primary:hover,
@@ -2101,8 +2180,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  background-color: crimson;
+  border-color: darkred;
 }
 
 .btn-primary:active,
@@ -4506,7 +4585,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: darkred;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4520,7 +4599,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: darkred;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
@@ -4928,13 +5007,14 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
-  font-size: 21px;
-  font-weight: 200;
-  line-height: 2.1428571435;
-  color: inherit;
-  background-color: #eeeeee;
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-image: url('../Resources/index-cover.jpg');
+    background-size:cover;
 }
 
 .jumbotron h1 {
@@ -6230,6 +6310,10 @@ body.modal-open,
 
 .invisible {
   visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }
 
 .text-hide {
