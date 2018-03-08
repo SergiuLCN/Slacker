@@ -3,8 +3,6 @@
 
 The Project is divided in the tools mentioned above.
 
-################################################################################################################################
-
 ### Progress so far:
 
 * [x] changed the layout style
@@ -20,8 +18,6 @@ press of the cover button
           - [x] formatted the list
           - [x] added :even / :odd row color
                                                                                  
-################################################################################################################################                                                                     
-
 ### To do list:
 
 ###### Financial tracker module:
