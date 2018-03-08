@@ -10,7 +10,7 @@ The Project is divided in the tools mentioned above.
 * [x] added a multifunctional button in the cover that dinamically changes text and functions according to different cases
 * [x] added a dinamic main menu composed of "link tiles" that highlight when mouse-hovered and fades in and out sequentially with the 
 press of the cover button 
-* [x] added financial tracker modulej 
+* [x] added financial tracker module
      - [x] created model,controllers, views
      - [x] input forms(amount, sign, source)
      - [x] input source autocomplete and scroll
