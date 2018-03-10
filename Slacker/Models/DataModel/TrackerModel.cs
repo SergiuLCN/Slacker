@@ -7,11 +7,12 @@ using System.Web;
 
 namespace Slacker.Models.DataModel
 {
+
     public class FinancialTracker
     {
         public long TransactionId { get; set; }
-        
-        [Display(Name ="Amount")]
+
+        [Display(Name = "Amount")]
         public int InputValue { get; set; }
 
         public DateTime CurrentDate { get; set; }
@@ -19,7 +20,9 @@ namespace Slacker.Models.DataModel
         public string SpentGainedStatus { get; set; }
         [Display(Name = "Source")]
         public string SpentGainedSource { get; set; }
-
+        ApplicationContext db = new ApplicationContext();
+   
+        FinancialTracker y = db
         public List<FinancialTrackerViewModel> FinTrList = new List<FinancialTrackerViewModel>();
 
     }
@@ -37,6 +40,22 @@ namespace Slacker.Models.DataModel
         [Display(Name = "Source")]
         public string SpentGainedSource { get; set; }
     }
-    
+
+    public class FinancialTrackerEditViewModel
+    {        
+        
+ 
+        public long TransactionId { get; set; }
+
+        [Display(Name = "Amount")]
+        public int InputValue { get; set; }
+
+        public DateTime CurrentDate { get; set; }
+        [Display(Name = "Status")]
+        public string SpentGainedStatus { get; set; }
+        [Display(Name = "Source")]
+        public string SpentGainedSource { get; set; }
+    }
+
 
 }

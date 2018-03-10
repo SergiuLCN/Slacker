@@ -31,23 +31,28 @@ namespace Slacker.Controllers
         [HttpGet]
         public ActionResult FinancialTracker()
         {
+
             using (ApplicationContext db = new ApplicationContext())
             {
-                var listOfFinancialTracker = from x in db.FinancialTracker
-                            select new FinancialTrackerViewModel
-                            {
-                                TransactionId = x.TransactionId,
-                                CurrentDate = x.CurrentDate,
-                                SpentGainedStatus = x.SpentGainedStatus,
-                                SpentGainedSource = x.SpentGainedSource,
-                                InputValue = x.InputValue
-                                
-                            };
 
-                var model = new FinancialTracker();
+                var listOfFinancialTracker = from x in db.FinancialTracker
+                                             select new FinancialTrackerEditViewModel
+                                             {
+
+                                                 TransactionId = x.TransactionId,
+                                                 CurrentDate = x.CurrentDate,
+                                                 SpentGainedStatus = x.SpentGainedStatus,
+                                                 SpentGainedSource = x.SpentGainedSource,
+                                                 InputValue = x.InputValue
+
+                                             };
+
+            }
+                
+                    var model = new FinancialTracker();
                 model.FinTrList = listOfFinancialTracker.ToList();
                 return View(model);
-            }
+            
         }
         [HttpPost]
         public ActionResult FinancialTracker(FinancialTracker finTr)
